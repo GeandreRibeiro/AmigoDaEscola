@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace MinhaEscola
 {
     public class Program
@@ -10,7 +12,7 @@ namespace MinhaEscola
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
-
+            
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {

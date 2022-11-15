@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container">
+    <label class="text-start">Entrar no Sistema</label>
+    <div class="p-3 border bg-light shadow align-content-center">
+        <div class="col-20">
+            <form class="text-light">
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                </div>
+                
+                <a class="btn btn-primary btn-group-lg" asp-controller="Login" asp-action="Entrar" >Entrar</a>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
