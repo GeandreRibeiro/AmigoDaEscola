@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Img\amazon.png" />
+    <None Include="wwwroot\Img\aspnet.jpeg" />
+    <None Include="wwwroot\Img\csharp.png" />
+    <None Include="wwwroot\Img\sqlServer.png" />
+    <None Include="wwwroot\Img\vs.webp" />
+  </ItemGroup>
+
+</Project>
