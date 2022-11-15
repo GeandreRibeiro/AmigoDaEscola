@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Entre em Contato";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Entre em contato com a nossa equipe.</p>
+<div class="container">
+    <div class="col-6">
+        <div class="p-3 border bg-light">
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-12">
+                    <input type="email" class="form-control" id="Email" value="" required, placeholder="Email">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <input type="tel" class="form-control" id="Telefone" value="" required, placeholder="Telefone">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="validationCustom01" value="" required, placeholder="Nome">
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="validationCustom02" placeholder="Sobrenome" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="validationCustom03" placeholder="Cidade" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid city.
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <select class="form-select" id="validationCustom04" required>
+                      <option selected disabled value="">Estado...</option>
+                            <option>Acre</option>
+                            <option>Alagoas</option>
+                            <option>Amapá</option>
+                            <option>Amazonas</option>
+                            <option>Bahia</option>
+                            <option>Ceará</option>
+                            <option>Espírito Santo</option>
+                            <option>Goiás</option>
+                            <option>Maranhão</option>
+                            <option>Mato Grosso</option>
+                            <option>Mato Grosso do Sul</option>
+                            <option>Minas Gerais</option>
+                            <option>Pará</option>
+                            <option>Paraíba</option>
+                            <option>Paraná</option>
+                            <option>Pernambuco</option>
+                            <option>Piauí</option>
+                            <option>Rio de Janeiro</option>
+                            <option>Rio Grande do Norte</option>
+                            <option>Rio Grande do Sul</option>
+                            <option>Rondônia</option>
+                            <option>Roraima</option>
+                            <option>Santa Catarina</option>
+                            <option>São Paulo</option>
+                            <option>Sergipe</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select a valid state.
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <input type="text" class="form-control" id="validationCustom05" placeholder="CEP" required>
+                    <div class="invalid-feedback">
+                      Please provide a valid zip.
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label" for="invalidCheck">
+                        Quero receber informações do Amigo da escola
+                      </label>
+                      <div class="invalid-feedback">
+                        You must agree before submitting.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
