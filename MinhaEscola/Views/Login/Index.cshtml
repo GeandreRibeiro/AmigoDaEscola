@@ -1,21 +1,29 @@
-﻿@*
+﻿@model LoginModel
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
 }
+@if(TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-info">
+        <strong>E-mail</strong> @TempData["AlertMessage"]
+    </div>
+}
+
 <div class="container">
     <label class="text-start">Entrar no Sistema</label>
     <div class="p-3 border bg-light shadow align-content-center">
         <div class="col-20">
-            <form class="text-light">
+            <form class="text-light" asp-controller="Login" asp-action="Entrar" method="post">
                 <div class="mb-3">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
+                    <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
                 </div>
                 <div class="mb-3">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                    <input type="password" asp-for="Senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                 </div>
                 
-                <a class="btn btn-primary btn-group-lg" asp-controller="Login" asp-action="Entrar" >Entrar</a>
+                <button type="submit" class="btn btn-primary">Entrar</button>
                 
             </form>
         </div>
