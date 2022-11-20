@@ -29,13 +29,14 @@ namespace MinhaEscola.DateBase
 				throw;
 			}
         }
+
         /// <summary>
         /// Execut comand for sql script 
         /// </summary>
         /// <param name="strSQL">Secript sql for execut</param>
         /// <param name="parameters">Parameter for sql</param>
         /// <returns>Returns true or false if something goes wrong</returns>
-        public static bool ExecutCommand(string strSQL, List<SqlParameter> parameters)
+        public static bool ExecutCommandSelect(string strSQL, List<SqlParameter> parameters)
 		{
 			try
 			{
@@ -57,5 +58,34 @@ namespace MinhaEscola.DateBase
 				throw;
 			}
 		}
+
+        /// <summary>
+        /// Execut comand for sql script 
+        /// </summary>
+        /// <param name="strSQL">Secript sql for execut</param>
+        /// <param name="parameters">Parameter for sql</param>
+        /// <returns>Returns true or false if something goes wrong</returns>
+        public static bool ExecutCommand(string strSQL, List<SqlParameter> parameters)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand(strSQL, GetConnetction());
+                cmd.Parameters.AddRange(parameters.ToArray());
+               
+				if(cmd.ExecuteNonQuery()> 0)
+				{
+                    return true;
+                }
+				else
+				{
+					return false;
+				}
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

@@ -17,10 +17,10 @@
         <div class="col-20">
             <form class="text-light" asp-controller="Login" asp-action="Entrar" method="post">
                 <div class="mb-3">
-                    <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
+                    <input type="email" required asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail">
                 </div>
                 <div class="mb-3">
-                    <input type="password" asp-for="Senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                    <input type="password" required asp-for="Senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Entrar</button>

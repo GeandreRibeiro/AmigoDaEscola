@@ -14,7 +14,7 @@ namespace MinhaEscola.DateBase.Repositorios
 				sp.Add(new SqlParameter("@Email", email));
 				sp.Add(new SqlParameter("@Senha", senha));
 
-				return DBConection.ExecutCommand(strSQL, sp);
+				return DBConection.ExecutCommandSelect(strSQL, sp);
 			}
 			catch (Exception)
 			{

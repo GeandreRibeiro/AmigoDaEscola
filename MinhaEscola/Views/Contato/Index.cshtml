@@ -1,4 +1,5 @@
-﻿@*
+﻿@model ContatoModel
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
@@ -8,44 +9,50 @@
 }
 <h1 class="display-4">@ViewData["Title"]</h1>
 
-
+ 
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-info">
+        <strong>Contato</strong> @TempData["AlertMessage"]
+    </div>
+}
 <div class="container">
     <p class="display-7">Entre em contato com a nossa equipe.</p>
     <div class="align-content-center">
         <div class="p-3 border bg-light shadow">
-            <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3 needs-validation" asp-controller="Contato" asp-action="IncluirContatoC" method="post">
                 <div class="col-md-12">
-                    <input type="email" class="form-control" id="Email" value="" required, placeholder="Email">
+                    <input type="email" asp-for="Email" class="form-control" id="Email" value="" required, placeholder="Email">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <input type="tel" class="form-control" id="Telefone" value="" required, placeholder="Telefone">
+                    <input type="tel" asp-for="Telefone" class="form-control" id="Telefone" value="" required, placeholder="Telefone">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="validationCustom01" value="" required, placeholder="Nome">
+                    <input type="text" asp-for="Nome" class="form-control" id="validationCustom01" value="" required, placeholder="Nome">
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="validationCustom02" placeholder="Sobrenome" required>
+                    <input type="text" asp-for="SobreNome" class="form-control" id="validationCustom02" placeholder="Sobrenome" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="validationCustom03" placeholder="Cidade" required>
+                    <input type="text" asp-for="Cidade" class="form-control" id="validationCustom03" placeholder="Cidade" required>
                     <div class="invalid-feedback">
                         Please provide a valid city.
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <select class="form-select" id="validationCustom04" required>
+                    <select asp-for="Estado" class="form-select" id="validationCustom04" required>
                         <option selected disabled value="">Estado...</option>
                         <option>Acre</option>
                         <option>Alagoas</option>
@@ -78,14 +85,14 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <input type="text" class="form-control" id="validationCustom05" placeholder="CEP" required>
+                    <input type="text" asp-for="Cep" class="form-control" id="validationCustom05" placeholder="CEP" required>
                     <div class="invalid-feedback">
                         Please provide a valid zip.
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <input asp-for="ReceberInf" class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                         <label class="form-check-label" for="invalidCheck">
                             Quero receber informações do Amigo da escola
                         </label>

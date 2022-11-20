@@ -59,5 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Login.sql" />
+    <Build Include="Contato.sql" />
   </ItemGroup>
 </Project>
