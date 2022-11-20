@@ -60,5 +60,14 @@
   <ItemGroup>
     <Build Include="Login.sql" />
     <Build Include="Contato.sql" />
+    <Build Include="Escolas.sql" />
+    <Build Include="Professores.sql" />
+    <Build Include="Cidades.sql" />
+    <Build Include="Estados.sql" />
+    <Build Include="PlanosDeAula.sql" />
+    <Build Include="Contas.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="AmigoDaEscolaDB.refactorlog" />
   </ItemGroup>
 </Project>

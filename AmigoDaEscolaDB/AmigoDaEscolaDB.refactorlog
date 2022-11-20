@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="6d5a55ee-3b54-43a1-b38d-ee0762254483" ChangeDateTime="11/20/2022 18:34:26">
+    <Property Name="ElementName" Value="[dbo].[Escolas].[Cidade]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Escolas]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CidadeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="82b48fcb-a0dd-4651-8611-d182d238af49" ChangeDateTime="11/20/2022 18:44:00">
+    <Property Name="ElementName" Value="[dbo].[Professores].[IdCidade]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Professores]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CidadeId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d787968f-2f82-4462-b615-eef4ffaecba0" ChangeDateTime="11/20/2022 18:59:07">
+    <Property Name="ElementName" Value="[dbo].[PlanosDeAula].[ConteudoMinistrado]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PlanosDeAula]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Conteudo" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="96d82ae7-0ba7-4c12-a38d-367653430b0b" ChangeDateTime="11/20/2022 18:59:52">
+    <Property Name="ElementName" Value="[dbo].[PlanosDeAula].[Palavras]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PlanosDeAula]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PalavrasChave" />
+  </Operation>
+</Operations>
