@@ -19,7 +19,7 @@ namespace MinhaEscola.Controllers
 
             if (!new RepositorioLogin().CheckCredentials(login.Email, login.Senha))
             {
-                TempData["AlertMessage"] = "Email não cadastrado na base de dados.";
+                TempData["AlertMessage"] = "Email ou Senha não cadastrado na base de dados.";
                 return RedirectToAction("Index");
             }
             
