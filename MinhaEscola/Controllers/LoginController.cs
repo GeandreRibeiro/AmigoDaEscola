@@ -21,7 +21,7 @@ namespace MinhaEscola.Controllers
 
             if (!new LoginRepositorio(login).ChekLongin())
             {
-                TempData["AlertMessage"] = "Email não cadastrado na base de dados.";
+                TempData["AlertMessage"] = "Email ou Senha não cadastrado na base de dados.";
                 return RedirectToAction("Index");
             }
             
