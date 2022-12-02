@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MinhaEscola.DateBase.Repositorios;
+using MinhaEscola.Dominio.Entidades;
+using MinhaEscola.Dominio.Interfaces;
 using MinhaEscola.Models;
+using MinhaEscola.Repositorio;
 using MinhaEscola.Views.Home;
 
 namespace MinhaEscola.Controllers
@@ -14,10 +16,10 @@ namespace MinhaEscola.Controllers
 
 
         [HttpPost]
-        public IActionResult Entrar(LoginModel login)
+        public IActionResult Entrar(ELogin login)
         {
 
-            if (!new RepositorioLogin().CheckCredentials(login.Email, login.Senha))
+            if (!new LoginRepositorio(login).ChekLongin())
             {
                 TempData["AlertMessage"] = "Email não cadastrado na base de dados.";
                 return RedirectToAction("Index");

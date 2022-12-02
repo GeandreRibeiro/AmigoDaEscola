@@ -1,4 +1,9 @@
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using MinhaEscola.Dominio.Entidades;
+using MinhaEscola.Dominio.Interfaces;
+using MinhaEscola.Repositorio;
 
 namespace MinhaEscola
 {
@@ -10,6 +15,9 @@ namespace MinhaEscola
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            
+            //builder.Services.TryAddTransient<ILogin, ELogin>();
+            //builder.Services.TryAddTransient<IContato, EContatos>();
 
             var app = builder.Build();
             
