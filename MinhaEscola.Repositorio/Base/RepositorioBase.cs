@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,28 +13,44 @@ namespace MinhaEscola.Repositorio.Base
     public abstract class RepositorioBase : IDisposable
     {
         protected SqlConnection Cnn { get; private set; } = new SqlConnection();
+
+        private readonly string _source = @"DESKTOP-15SRLCA\SQLEXPRESS";
+        private  string _dataBase = "AmigoDaEscolaDB";
+
+        public RepositorioBase(string source = "", string dataBase = "")
+        {
+            if(!string.IsNullOrWhiteSpace(source))
+                this._source = source;
+            
+            if(!string.IsNullOrWhiteSpace(dataBase))
+                this._dataBase = dataBase;
+
+            ConectarBaseDados();
+        }
         
-        public RepositorioBase(string source = @"DESKTOP-15SRLCA\SQLEXPRESS", string dataBase = "AmigoDaEscolaDB")
+        private bool ConectarBaseDados()
         {
             try
             {
-                
-                
-                string connectionString = $@"Data Source={source}; Initial Catalog={dataBase}; Integrated Security=true;
+
+
+                string connectionString = $@"Data Source={_source}; Initial Catalog={_dataBase}; Integrated Security=true;
 														encrypt=true; trustServerCertificate=true";
 
                 Cnn.ConnectionString = connectionString;
-                Cnn.Open();
-
+                
+                if(Cnn.State== ConnectionState.Closed)
+                    Cnn.Open();
+                
+                return true;
             }
             catch (Exception)
             {
 
                 throw;
             }
-            
+
         }
-        
         public DataSet ExecutarSelect(string sql, List<SqlParameter> parameters) 
         {
             try
@@ -70,6 +87,15 @@ namespace MinhaEscola.Repositorio.Base
         public void Dispose()
         {
             Cnn.Close();
+            Cnn = null;
+        }
+
+        public bool ChekConexao()
+        {
+            if (Cnn.State == ConnectionState.Open)
+                return true;
+            else 
+                return false;
         }
     }
 }

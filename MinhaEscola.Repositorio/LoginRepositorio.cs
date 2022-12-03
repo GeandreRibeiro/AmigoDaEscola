@@ -1,5 +1,6 @@
-﻿using MinhaEscola.Dominio.Interfaces;
+﻿using MinhaEscola.Dominio.Entidades;
 using MinhaEscola.Repositorio.Base;
+using MinhaEscola.Repositorio.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,36 +12,33 @@ namespace MinhaEscola.Repositorio
 {
     public class LoginRepositorio : RepositorioBase, ILogin
     {
-        public LoginRepositorio(ILogin contato, string source, string dataBase) : base(source, dataBase)
+        private readonly ELogin _login; 
+        public LoginRepositorio(ELogin contato, string source, string dataBase) : base(source, dataBase)
         {
-            this.Email = contato.Email;
-            this.Senha = contato.Senha;
+            _login = contato;
         }
 
-        public LoginRepositorio(ILogin contato) : base()
+        public LoginRepositorio(ELogin contato) : base()
         {
-            this.Email = contato.Email;
-            this.Senha = contato.Senha;
+            _login = contato;
         }
 
-        public int Id { get; set; }
-        public string Email { get; set; }
-        public string Senha { get; set; }
 
         public bool ChekLongin()
         {
             string strSQL = "SELECT Email, Senha FROM Login WHERE Email = @email AND Senha = @senha";
             List<SqlParameter> parametros = new List<SqlParameter>();
-            parametros.Add(new SqlParameter("@email", this.Email));
-            parametros.Add(new SqlParameter("@senha", this.Senha));
+            parametros.Add(new SqlParameter("@email", _login.Email));
+            parametros.Add(new SqlParameter("@senha", _login.Senha));
             
             var ds = base.ExecutarSelect(strSQL, parametros);
 
-            if (ds.Tables[0].Rows.Count > 0) return true;
-            else return false;
+            if (ds.Tables[0].Rows.Count > 0)
+                return true;
+            else 
+                return false;
             
         }
 
-        
     }
 }

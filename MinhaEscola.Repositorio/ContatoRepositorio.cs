@@ -1,33 +1,25 @@
-﻿using MinhaEscola.Dominio.Interfaces;
+﻿using MinhaEscola.Dominio.Entidades;
 using MinhaEscola.Repositorio.Base;
+using MinhaEscola.Repositorio.Interfaces;
 using System.Data.SqlClient;
 
 namespace MinhaEscola.Repositorio
 {
     public class ContatoRepositorio : RepositorioBase, IContato
     {
-        public ContatoRepositorio(string source, string dataBase) : base(source, dataBase)
-        {
+        private readonly EContatos _contato;
 
+        public ContatoRepositorio(EContatos contato, string source, string dataBase) : base(source, dataBase)
+        {
+            _contato = contato;
         }
 
-        public ContatoRepositorio() : base()
+        public ContatoRepositorio(EContatos contato) : base()
         {
-
+            _contato = contato;
         }
 
-        public int Id { get; set; }
-        public string Email { get; set; } = string.Empty;
-        public string Telefone { get; set; } = string.Empty;
-        public string Nome { get; set; } = string.Empty;
-        public string SobreNome { get; set; } = string.Empty;
-        public string Cidade { get; set; } = string.Empty;
-        public string Estado { get; set; } = string.Empty;
-        public string Cep { get; set; } = string.Empty;
-        public bool ReceberInf { get; set; }
-        public bool Contatado { get; set; }
-
-        public bool GravarContrato(IContato contato)
+        public bool Gravar()
         {
             string strSQL = "INSERT INTO Contato (" +
                 "Email, " +
@@ -52,15 +44,15 @@ namespace MinhaEscola.Repositorio
                 ")";
             
             List<SqlParameter> parametros = new List<SqlParameter>();
-            parametros.Add(new SqlParameter("@Email", contato.Email));
-            parametros.Add(new SqlParameter("@Telefone", contato.Telefone));
-            parametros.Add(new SqlParameter("@Nome", contato.Nome));
-            parametros.Add(new SqlParameter("@SobreNome", contato.SobreNome));
-            parametros.Add(new SqlParameter("@Cidade", contato.Cidade));
-            parametros.Add(new SqlParameter("@Estado", contato.Estado));
-            parametros.Add(new SqlParameter("@Cep", contato.Cep));
-            parametros.Add(new SqlParameter("@ReceberInf", contato.ReceberInf));
-            parametros.Add(new SqlParameter("@Contatado", contato.Contatado));
+            parametros.Add(new SqlParameter("@Email", _contato.Email));
+            parametros.Add(new SqlParameter("@Telefone", _contato.Telefone));
+            parametros.Add(new SqlParameter("@Nome", _contato.Nome));
+            parametros.Add(new SqlParameter("@SobreNome", _contato.SobreNome));
+            parametros.Add(new SqlParameter("@Cidade", _contato.Cidade));
+            parametros.Add(new SqlParameter("@Estado", _contato.Estado));
+            parametros.Add(new SqlParameter("@Cep", _contato.Cep));
+            parametros.Add(new SqlParameter("@ReceberInf", _contato.ReceberInf));
+            parametros.Add(new SqlParameter("@Contatado", _contato.Contatado));
 
 
             if (base.ExecutarComando(strSQL, parametros) > 0)
@@ -68,6 +60,21 @@ namespace MinhaEscola.Repositorio
 
             return false;
 
+        }
+
+        public bool Buscar(int contatoId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Alterar(int contatoId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Excluir(int contatoId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -14,8 +14,4 @@
     <ProjectReference Include="..\MinhaEscola.Dominio\MinhaEscola.Dominio.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
-
 </Project>

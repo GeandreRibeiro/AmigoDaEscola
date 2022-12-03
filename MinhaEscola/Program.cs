@@ -2,8 +2,9 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using MinhaEscola.Dominio.Entidades;
-using MinhaEscola.Dominio.Interfaces;
+
 using MinhaEscola.Repositorio;
+using MinhaEscola.Repositorio.Interfaces;
 
 namespace MinhaEscola
 {

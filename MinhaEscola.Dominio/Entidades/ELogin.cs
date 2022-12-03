@@ -1,5 +1,4 @@
-﻿using MinhaEscola.Dominio.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
@@ -8,15 +7,18 @@ using System.Threading.Tasks;
 
 namespace MinhaEscola.Dominio.Entidades
 {
-    public class ELogin : ILogin
+    public class ELogin
     {
-        public int Id { get; set; }
-        public string Email { get; set; } = string.Empty;
-        public string Senha { get; set; } = string.Empty;
-
-        public bool ChekLongin()
+        public ELogin(int id, string email, string senha)
         {
-            throw new NotImplementedException();
+            Id = id;
+            Email = email;
+            Senha = senha;
         }
+
+        public int Id { get; private set; }
+        public string Email { get; private set; } = string.Empty;
+        public string Senha { get; private set; } = string.Empty;
+
     }
 }

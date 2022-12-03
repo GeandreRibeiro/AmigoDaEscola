@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MinhaEscola.Dominio.Entidades;
-using MinhaEscola.Dominio.Interfaces;
 using MinhaEscola.Models;
 using MinhaEscola.Repositorio;
 using System.Diagnostics;
@@ -15,9 +14,22 @@ namespace MinhaEscola.Controllers
         }
 
         [HttpPost]
-        public IActionResult IncluirContatoC(EContatos contato)
+        public IActionResult IncluirContatoC(ContatoModel contato)
         {
-            if(new ContatoRepositorio().GravarContrato(contato))
+            EContatos cont = new EContatos(
+                contato.Id,
+                contato.Email, 
+                contato.Telefone,
+                contato.Nome,
+                contato.SobreNome, 
+                contato.Cidade, 
+                contato.Estado,
+                contato.Cep, 
+                contato.ReceberInf, 
+                contato.Contatado
+                );
+
+            if(new ContatoRepositorio(cont).Gravar())
             {
                 TempData["AlertMessage"] = "Recebemos seu pedido de contato. Em breve entraremos em contato.";
                 return RedirectToAction("Index");
