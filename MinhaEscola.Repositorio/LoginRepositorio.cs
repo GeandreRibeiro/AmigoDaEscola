@@ -1,4 +1,5 @@
-﻿using MinhaEscola.Dominio.Entidades;
+﻿using MinhaEscola.Dominio;
+using MinhaEscola.Dominio.Entidades;
 using MinhaEscola.Repositorio.Base;
 using MinhaEscola.Repositorio.Interfaces;
 using System;
@@ -10,17 +11,17 @@ using System.Threading.Tasks;
 
 namespace MinhaEscola.Repositorio
 {
-    public class LoginRepositorio : RepositorioBase, ILogin
+    public class LoginRepositorio : RepositorioBase, IRepositorio
     {
         private readonly ELogin _login; 
-        public LoginRepositorio(ELogin contato, string source, string dataBase) : base(source, dataBase)
+        public LoginRepositorio(IDominio contato, string source, string dataBase) : base(source, dataBase)
         {
-            _login = contato;
+            _login = (ELogin)contato;
         }
 
-        public LoginRepositorio(ELogin contato) : base()
+        public LoginRepositorio(IDominio contato) : base()
         {
-            _login = contato;
+            _login = (ELogin)contato;
         }
 
 
@@ -40,5 +41,24 @@ namespace MinhaEscola.Repositorio
             
         }
 
+        public bool Gravar()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDominio Buscar(int contatoId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Alterar(int contatoId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Excluir(int contatoId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

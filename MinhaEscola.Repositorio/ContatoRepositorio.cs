@@ -1,22 +1,24 @@
-﻿using MinhaEscola.Dominio.Entidades;
+﻿using MinhaEscola.Dominio;
+using MinhaEscola.Dominio.Entidades;
 using MinhaEscola.Repositorio.Base;
+using MinhaEscola.Repositorio.Base.Inrerface;
 using MinhaEscola.Repositorio.Interfaces;
 using System.Data.SqlClient;
 
 namespace MinhaEscola.Repositorio
 {
-    public class ContatoRepositorio : RepositorioBase, IContato
+    public class ContatoRepositorio : RepositorioBase, IRepositorio
     {
         private readonly EContatos _contato;
 
-        public ContatoRepositorio(EContatos contato, string source, string dataBase) : base(source, dataBase)
+        public ContatoRepositorio(IDominio contato, string source, string dataBase) : base(source, dataBase)
         {
-            _contato = contato;
+            _contato = (EContatos)contato;
         }
 
-        public ContatoRepositorio(EContatos contato) : base()
+        public ContatoRepositorio(IDominio contato) : base()
         {
-            _contato = contato;
+            _contato = (EContatos)contato;
         }
 
         public bool Gravar()
@@ -62,7 +64,7 @@ namespace MinhaEscola.Repositorio
 
         }
 
-        public bool Buscar(int contatoId)
+        public IDominio Buscar(int contatoId)
         {
             throw new NotImplementedException();
         }

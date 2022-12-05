@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MinhaEscola.Dominio.Entidades
 {
-    public class EContatos
+    public class EContatos : IDominio
     {
         public EContatos(
             int id, 

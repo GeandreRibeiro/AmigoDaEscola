@@ -1,4 +1,5 @@
-﻿using MinhaEscola.Dominio.Entidades;
+﻿using MinhaEscola.Dominio;
+using MinhaEscola.Dominio.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace MinhaEscola.Repositorio.Base.Inrerface
     public interface IBase
     {
         bool Gravar();
-        bool Buscar(int contatoId);
-        bool Alterar(int contatoId);
-        bool Excluir(int contatoId);
+        IDominio Buscar(int Id);
+        bool Alterar(int Id);
+        bool Excluir(int Id);
     }
 }

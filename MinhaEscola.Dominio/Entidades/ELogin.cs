@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MinhaEscola.Dominio.Entidades
 {
-    public class ELogin
+    public class ELogin : IDominio
     {
         public ELogin(int id, string email, string senha)
         {
