@@ -28,4 +28,67 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="PalavrasChave" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="342eae66-60af-43f5-b606-5edef494b3a3" ChangeDateTime="12/05/2022 10:40:31">
+    <Property Name="ElementName" Value="[dbo].[Alunos].[Documento]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Alunos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CPF" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2ccc868d-fa23-4d85-8b2a-c81331c7d183" ChangeDateTime="12/05/2022 10:46:23">
+    <Property Name="ElementName" Value="[dbo].[Pais].[Pai]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Pais]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PaiNome" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3f27bfd2-5626-4f21-90ae-8ec6d7bcd45c" ChangeDateTime="12/05/2022 10:48:19">
+    <Property Name="ElementName" Value="[dbo].[Pais].[PaiWhat]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Pais]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PaiWhatsApp" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d5434cc3-a15b-4dbc-9db1-b6b8ce21fda5" ChangeDateTime="12/05/2022 10:53:07">
+    <Property Name="ElementName" Value="[dbo].[FK_Alunos_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Alunos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Alunos_Cidade]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7410ceb5-5e2f-44d7-b632-9664847ac901" ChangeDateTime="12/05/2022 10:53:20">
+    <Property Name="ElementName" Value="[dbo].[FK_Alunos_ToTable_1]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Alunos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Alunos_Pais]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6dc7ddf7-076a-487d-985b-eaae3c83a93d" ChangeDateTime="12/05/2022 10:54:18">
+    <Property Name="ElementName" Value="[dbo].[Alunos].[PaiId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Alunos]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PaisId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="25332ab9-075a-426c-8820-ad6073ff23f3" ChangeDateTime="12/05/2022 11:06:44">
+    <Property Name="ElementName" Value="[dbo].[Imagens].[bit]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Imagens]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AlunosId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a2be023f-4b81-4df4-b275-efa7689cfcbd" ChangeDateTime="12/05/2022 11:06:50">
+    <Property Name="ElementName" Value="[dbo].[Imagens].[AlunosId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Imagens]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AlunoId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ca82d5dd-fd65-4f1b-aed6-e4ad0c97155a" ChangeDateTime="12/05/2022 11:17:59">
+    <Property Name="ElementName" Value="[dbo].[FK_Pais_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Pais]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Pais_Cidades]" />
+  </Operation>
 </Operations>

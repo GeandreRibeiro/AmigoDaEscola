@@ -3,7 +3,9 @@ using MinhaEscola.Dominio.Entidades;
 
 using MinhaEscola.Models;
 using MinhaEscola.Repositorio;
+using MinhaEscola.Repositorio.Interfaces;
 using MinhaEscola.Views.Home;
+using System.Runtime.CompilerServices;
 
 namespace MinhaEscola.Controllers
 {

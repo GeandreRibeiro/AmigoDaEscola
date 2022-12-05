@@ -66,6 +66,10 @@
     <Build Include="Estados.sql" />
     <Build Include="PlanosDeAula.sql" />
     <Build Include="Contas.sql" />
+    <Build Include="Alunos.sql" />
+    <Build Include="Pais.sql" />
+    <Build Include="PaisAlunos.sql" />
+    <Build Include="Imagens.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AmigoDaEscolaDB.refactorlog" />
