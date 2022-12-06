@@ -18,6 +18,7 @@ namespace MinhaEscola.Repositorio
     public class CidadeRepositorio :RepositorioBase, IRepositorio
     {
         private readonly ECidade _cidade;
+        private const string _tabela = "Cidades";
 
         public CidadeRepositorio(IDominio cidade) : base()
         {
@@ -26,7 +27,16 @@ namespace MinhaEscola.Repositorio
 
         public bool Alterar(int contatoId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string strSQL = "UPDATE ";
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public IDominio Buscar(int Id)
@@ -90,7 +100,7 @@ namespace MinhaEscola.Repositorio
         {
             try
             {
-                string strSQL = "INSER INTO Cidades (Descricao, CodigoIBGE, EstadoId)VALUES(" +
+                string strSQL = $"INSER INTO {_tabela} (Descricao, CodigoIBGE, EstadoId)VALUES(" +
                     "@Descricao, @CodigoIBGE, @EstadoId)";
 
                 List<SqlParameter> list = new List<SqlParameter>();

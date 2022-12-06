@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MinhaEscola.Repositorio.Base.Inrerface;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace MinhaEscola.Repositorio.Base
 {
-    public abstract class RepositorioBase : IDisposable
+    public abstract class RepositorioBase : IDisposable, IBaseDados
     {
         protected SqlConnection Cnn { get; private set; } = new SqlConnection();
 
@@ -28,7 +29,7 @@ namespace MinhaEscola.Repositorio.Base
             ConectarBaseDados();
         }
         
-        private bool ConectarBaseDados()
+        public bool ConectarBaseDados()
         {
             try
             {
@@ -51,6 +52,7 @@ namespace MinhaEscola.Repositorio.Base
             }
 
         }
+
         public DataSet ExecutarSelect(string sql, List<SqlParameter> parameters) 
         {
             try
@@ -97,5 +99,7 @@ namespace MinhaEscola.Repositorio.Base
             else 
                 return false;
         }
+
+       
     }
 }

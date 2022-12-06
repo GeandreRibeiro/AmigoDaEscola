@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinhaEscola.Dominio", "Minh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinhaEscola.Repositorio", "MinhaEscola.Repositorio\MinhaEscola.Repositorio.csproj", "{A481C3E9-0F9D-4D82-897E-D5872FABCD9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinhaEscola.Testes", "MinhaEscola.Testes\MinhaEscola.Testes.csproj", "{57524B44-4B96-4FED-AC2E-FDEAAADF740D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MinhaEscola.Testes", "MinhaEscola.Testes\MinhaEscola.Testes.csproj", "{57524B44-4B96-4FED-AC2E-FDEAAADF740D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeradorSQL", "GeradorSQL\GeradorSQL.csproj", "{4704CBF2-D370-49FF-8730-05E4D90EB027}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{57524B44-4B96-4FED-AC2E-FDEAAADF740D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57524B44-4B96-4FED-AC2E-FDEAAADF740D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57524B44-4B96-4FED-AC2E-FDEAAADF740D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4704CBF2-D370-49FF-8730-05E4D90EB027}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4704CBF2-D370-49FF-8730-05E4D90EB027}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4704CBF2-D370-49FF-8730-05E4D90EB027}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4704CBF2-D370-49FF-8730-05E4D90EB027}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
