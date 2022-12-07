@@ -1,4 +1,6 @@
-﻿using MinhaEscola.Dominio;
+﻿using GeradorSQL.Classes;
+using GeradorSQL.Interfaces;
+using MinhaEscola.Dominio;
 using MinhaEscola.Dominio.Entidades;
 using MinhaEscola.Dominio.TiposDeCampos;
 using MinhaEscola.Repositorio.Base;
@@ -18,19 +20,46 @@ namespace MinhaEscola.Repositorio
     public class CidadeRepositorio :RepositorioBase, IRepositorio
     {
         private readonly ECidade _cidade;
+        private ISQL _sql;
         private const string _tabela = "Cidades";
-
-        public CidadeRepositorio(IDominio cidade) : base()
+        private List<ICampos> _campos = new List<ICampos>();
+        public CidadeRepositorio(IDominio cidade, ISQL sql) : base()
         {
             _cidade = (ECidade)cidade;
+            _sql = (GerarSQL)sql;
         }
 
-        public bool Alterar(int contatoId)
+        private void carregarCampos()
+        {
+            //campos para serem alterados
+            _campos.Add(new Campos("Descricao", _cidade.Descricao.ToString()));
+            _campos.Add(new Campos("CodigoIBGE", _cidade.CodigoIBGE.ToString()));
+            _campos.Add(new Campos("EstadoId", _cidade.EstadoId.ToString()));
+        }
+
+        public bool Alterar(int Id)
         {
             try
             {
-                string strSQL = "UPDATE ";
+                carregarCampos();
+                //Condições para a alteração
+                List<ICondicao> condicoes = new List<ICondicao>();
+                condicoes.Add(new Condicao("Id", Id.ToString(), Comparador.Igual));
+                
+                //Gerando o sql
+                string strSQL = _sql.GerarUpdate(_tabela, _campos, condicoes);
 
+                //Criando os Parametros
+                List<SqlParameter> par = new List<SqlParameter>();
+                foreach (var item in _campos)
+                {
+                    par.Add(new SqlParameter("@"+item.Campo, item.Valor));
+                }
+
+                if (base.ExecutarComando(strSQL, par) == 0)
+                    return false;
+
+                return true;
             }
             catch (Exception)
             {
@@ -44,9 +73,11 @@ namespace MinhaEscola.Repositorio
             try
             {
                 ECidade cidade = new();
-                
-                string strSQL = "SELECT Id, Descricao, CodigoIBGE,  EstadoId FROM Cidades " + 
-                    "WHERE Id = @Id";
+                carregarCampos();
+                List<ICondicao> condicoes = new List<ICondicao>();
+                condicoes.Add(new Condicao("Id", Comparador.Igual));
+
+                string strSQL = _sql.GerarSelect(_tabela, _campos, condicoes);
                 
                 List<SqlParameter> sp = new List<SqlParameter>();
                 sp.Add(new SqlParameter("@Id", Id));
@@ -79,7 +110,12 @@ namespace MinhaEscola.Repositorio
         {
             try
             {
-                string strSQL = "DELETE FROM Cidades WHERE Id = @Id";
+                List<ICondicao> condicoes = new List<ICondicao>();
+                
+                condicoes.Add(new Condicao("Id", Comparador.Igual));
+
+                string strSQL = _sql.GerarDelete(_tabela, condicoes);
+
                 List<SqlParameter> list = new List<SqlParameter>();
                 list.Add(new SqlParameter("@Id", Id));
 
@@ -100,16 +136,17 @@ namespace MinhaEscola.Repositorio
         {
             try
             {
-                string strSQL = $"INSER INTO {_tabela} (Descricao, CodigoIBGE, EstadoId)VALUES(" +
-                    "@Descricao, @CodigoIBGE, @EstadoId)";
+                string strSQL = _sql.GerarInsert(_tabela, _campos);
 
                 List<SqlParameter> list = new List<SqlParameter>();
-                list.Add(new SqlParameter("@Descricao", _cidade.Descricao));
-                list.Add(new SqlParameter("@CodigoIBGE", _cidade.CodigoIBGE));
-                list.Add(new SqlParameter("@EstadoId", _cidade.EstadoId));
+
+                foreach (var item in _campos)
+                {
+                    list.Add(new SqlParameter("@"+item.Campo, item.Valor));
+                }
 
                 if (base.ChekConexao())
-                    if (ExecutarComando(strSQL, list) == 0)
+                    if (base.ExecutarComando(strSQL, list) == 0)
                         return false;
                 
                 return true;

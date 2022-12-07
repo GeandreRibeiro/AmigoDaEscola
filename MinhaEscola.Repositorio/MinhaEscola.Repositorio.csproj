@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GeradorSQL\GeradorSQL.csproj" />
     <ProjectReference Include="..\MinhaEscola.Dominio\MinhaEscola.Dominio.csproj" />
   </ItemGroup>
 

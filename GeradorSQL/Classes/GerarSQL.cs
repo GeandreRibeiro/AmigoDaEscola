@@ -10,7 +10,7 @@ namespace GeradorSQL.Classes
 {
     public class GerarSQL : ISQL
     {
-        public string GerarDelete(string tabela, List<ICodicao> condicoes)
+        public string GerarDelete(string tabela, List<ICondicao> condicoes)
         {
             if (string.IsNullOrWhiteSpace(tabela)) 
                 return string.Empty;
@@ -28,7 +28,7 @@ namespace GeradorSQL.Classes
             return strSQL;
         }
 
-        public string GerarInsert(string tabela, List<string> campos)
+        public string GerarInsert(string tabela, List<ICampos> campos)
         {
             if (string.IsNullOrWhiteSpace(tabela)) 
                 return string.Empty;
@@ -36,18 +36,18 @@ namespace GeradorSQL.Classes
             if (campos.Count == 0)
                 return string.Empty;
 
-            string? ultimoCampo = campos.LastOrDefault();
+            ICampos? ultimoCampo = campos.LastOrDefault();
 
             string strSQL = $"INSERT INTO {tabela}(";
             foreach (var item in campos)
             {
                 if(item == ultimoCampo)
                 {
-                    strSQL += item;
+                    strSQL += item.Campo;
                 }
                 else
                 {
-                    strSQL += item + ", ";
+                    strSQL += item.Campo + ", ";
                 }
             }
 
@@ -57,11 +57,11 @@ namespace GeradorSQL.Classes
             {
                 if (item == ultimoCampo)
                 {
-                    strSQL += "@"+item;
+                    strSQL += "@"+item.Campo;
                 }
                 else
                 {
-                    strSQL += item + ", ";
+                    strSQL += item.Campo + ", ";
                 }
             }
 
@@ -71,7 +71,7 @@ namespace GeradorSQL.Classes
 
         }
 
-        public string GerarSelect(string tabela, List<string> campos, List<ICodicao> condicoes)
+        public string GerarSelect(string tabela, List<ICampos> campos, List<ICondicao> condicoes)
         {
             if (string.IsNullOrWhiteSpace(tabela)) 
                 return string.Empty;
@@ -83,17 +83,17 @@ namespace GeradorSQL.Classes
                 return string.Empty;
 
             string strSQL = $"SELECT ";
-            string? utilmoCampo = campos.LastOrDefault();
+            ICampos? utilmoCampo = campos.LastOrDefault();
 
             foreach (var item in campos)
             {
                 if(utilmoCampo == item)
                 {
-                    strSQL += item + " ";
+                    strSQL += item.Campo + " ";
                 }
                 else
                 {
-                    strSQL += item + ", ";
+                    strSQL += item.Campo + ", ";
                 }
                 
             }
@@ -108,7 +108,7 @@ namespace GeradorSQL.Classes
             return strSQL;
         }
 
-        public string GerarUpdate(string tabela, List<string> campos, List<ICodicao> codicoes)
+        public string GerarUpdate(string tabela, List<ICampos> campos, List<ICondicao> codicoes)
         {
             if (string.IsNullOrWhiteSpace(tabela))
                 return string.Empty;

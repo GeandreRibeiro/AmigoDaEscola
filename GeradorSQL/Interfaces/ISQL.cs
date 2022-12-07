@@ -8,9 +8,9 @@ namespace GeradorSQL.Interfaces
 {
     public interface ISQL
     {
-        string GerarSelect(string tabela, List<string> campos, List<ICodicao> condicoes);
-        string GerarInsert(string tabela, List<string> campos);
-        string GerarUpdate(string tabela, List<string> campos, List<ICodicao> codicoes);
-        string GerarDelete(string tabela, List<ICodicao> codicoes);
+        string GerarSelect(string tabela, List<ICampos> campos, List<ICondicao> condicoes);
+        string GerarInsert(string tabela, List<ICampos> campos);
+        string GerarUpdate(string tabela, List<ICampos> campos, List<ICondicao> codicoes);
+        string GerarDelete(string tabela, List<ICondicao> codicoes);
     }
 }

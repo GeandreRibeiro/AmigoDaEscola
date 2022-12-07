@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace GeradorSQL.Interfaces
 {
-    public interface ICodicao
+    public interface ICondicao
     {
         string Campo { get; set; }
-        string Valor { get; set; }
         string Juncao { get; set; }
         string Comparador { get; set; }
     }
