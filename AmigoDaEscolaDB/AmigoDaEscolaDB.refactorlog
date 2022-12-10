@@ -91,4 +91,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[FK_Pais_Cidades]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="17f76070-6cbc-4c3b-afb7-a830fc75b663" ChangeDateTime="12/10/2022 13:02:50">
+    <Property Name="ElementName" Value="[dbo].[FK_Contas_Pais (Id)]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Contas]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Contas_Pais]" />
+  </Operation>
 </Operations>

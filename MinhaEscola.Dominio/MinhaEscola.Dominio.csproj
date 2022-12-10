@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CPFCNPJ" Version="2.0.5" />
     <PackageReference Include="Flunt.Extensions.Br" Version="1.0.1" />
   </ItemGroup>
 
